@@ -30,6 +30,10 @@ def files():
     files_list = sorted([fl.split("/")[-1] for fl in glob.glob("./Data/volume/*.dcm")])
     return json.dumps(files_list)
 
+@app.route("/") 
+def main(): 
+    return rendertemplate("about.html") 
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000, debug=True)
 
